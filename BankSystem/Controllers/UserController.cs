@@ -7,7 +7,7 @@ using Microsoft.EntityFrameworkCore;
 namespace BankSystem.Controllers;
 
 [ApiController]
-[Route("[controller]")]
+[Route("api/[controller]")]
 public class UserController(BankDbContext dbContext) : ControllerBase
 {
     private readonly BankDbContext _dbContext = dbContext;
