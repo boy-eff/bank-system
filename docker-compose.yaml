@@ -3,8 +3,8 @@ version: '3.9'
 services:
   webapi:
     build:
-      context: ./BankSystem
-      dockerfile: Dockerfile
+      context: .
+      dockerfile: ./BankSystem/Dockerfile
     container_name: webapi
     ports:
       - "8080:8080"
