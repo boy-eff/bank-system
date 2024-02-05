@@ -15,9 +15,9 @@ public class CreateUpdateUserModel
     public string PlaceOfBirth { get; set; }
     public int CurrentResidenceCityId { get; set; }
     public string CurrentResidenceAddress { get; set; }
-    public string HomePhoneNumber { get; set; }
-    public string MobilePhoneNumber { get; set; }
-    public string Email { get; set; }
+    public string? HomePhoneNumber { get; set; }
+    public string? MobilePhoneNumber { get; set; }
+    public string? Email { get; set; }
     public string RegistrationAddress { get; set; }
     public int MaritalStatusId { get; set; }
     public int CitizenshipId { get; set; }
