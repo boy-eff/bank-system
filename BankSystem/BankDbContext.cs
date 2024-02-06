@@ -19,5 +19,8 @@ public class BankDbContext : DbContext
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
         base.OnModelCreating(modelBuilder);
+        modelBuilder.Entity<UserEntity>().HasIndex(x => new { x.PassportSeries, x.PassportNumber }).IsUnique();
+        modelBuilder.Entity<UserEntity>().HasIndex(x => x.IdentificationNumber).IsUnique();
+        
     }
 }

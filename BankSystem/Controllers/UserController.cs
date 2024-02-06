@@ -17,7 +17,15 @@ public class UserController(BankDbContext dbContext) : ControllerBase
     {
         var user = userModel.Adapt<UserEntity>();
         var createdUser = await _dbContext.Users.AddAsync(user);
-        await _dbContext.SaveChangesAsync();
+        try
+        {
+            await _dbContext.SaveChangesAsync();
+        }
+        catch(DbUpdateException)
+        {
+            return BadRequest("Something wend wrong");
+        }
+        
         return Ok(createdUser.Entity);
     }
 
@@ -31,8 +39,29 @@ public class UserController(BankDbContext dbContext) : ControllerBase
         }
 
         userModel.Adapt(updatedUser);
-        await _dbContext.SaveChangesAsync();
+        try
+        {
+            await _dbContext.SaveChangesAsync();
+        }
+        catch(DbUpdateException)
+        {
+            return BadRequest("Something wend wrong");
+        }
         return Ok(updatedUser);
+    }
+
+    [HttpDelete("{id:int}")]
+    public async Task<ActionResult<int>> DeleteUser([FromRoute] int id)
+    {
+        var user = await _dbContext.Users.FirstOrDefaultAsync(user => user.Id == id);
+        if (user is null)
+        {
+            return NotFound("User not found");
+        }
+
+        _dbContext.Users.Remove(user);
+        await _dbContext.SaveChangesAsync();
+        return id;
     }
 
     [HttpGet("{id:int}")]
