@@ -1,0 +1,99 @@
+<h2>Primary Information</h2>
+<div class="dflex">
+  <div class="item">
+    <b>First name</b>
+    <p>{{ user.firstName }}</p>
+  </div>
+  <div class="item">
+    <b>Last name</b>
+    <p>{{ user.lastName }}</p>
+  </div>
+  <div class="item">
+    <b>Middle name</b>
+    <p>{{ user.middleName }}</p>
+  </div>
+  <div class="item">
+    <b>Date of Birth</b>
+    <p>{{ user.dateOfBirth | date }}</p>
+  </div>
+  <div class="item">
+    <b>Sex</b>
+    <p>{{ getSexAsString(user.sex) }}</p>
+  </div>
+  <div class="item">
+    <b>Marital status</b>
+    <p>{{ user.maritalStatus.name }}</p>
+  </div>
+</div>
+<mat-divider></mat-divider>
+<h2>Passport Information</h2>
+<div class="dflex">
+  <div class="item">
+    <b>Passport series</b>
+    <p>{{ user.passportSeries }}</p>
+  </div>
+  <div class="item">
+    <b>Passport number</b>
+    <p>{{ user.passportNumber }}</p>
+  </div>
+  <div class="item">
+    <b>Passport issuer</b>
+    <p>{{ user.issuer }}</p>
+  </div>
+  <div class="item">
+    <b>Passport issue date</b>
+    <p>{{ user.issueDate | date }}</p>
+  </div>
+  <div class="item">
+    <b>Identification number</b>
+    <p>{{ user.identityNumber }}</p>
+  </div>
+  <div class="item">
+    <b>Place of Birth</b>
+    <p>{{ user.placeOfBirth }}</p>
+  </div>
+  <div class="item">
+    <b>Registration address</b>
+    <p>{{ user.registrationAddress }}</p>
+  </div>
+</div>
+<mat-divider></mat-divider>
+<h2>Contact Information</h2>
+<div class="dflex">
+  <div class="item">
+    <b>Actual residence city</b>
+    <p>{{ user.actualResidenceCity.name }}</p>
+  </div>
+  <div class="item">
+    <b>Actual residence address</b>
+    <p>{{ user.actualResidenceAddress }}</p>
+  </div>
+  <div class="item">
+    <b>Home phone</b>
+    <p>{{ user.homePhone }}</p>
+  </div>
+  <div class="item">
+    <b>Mobile phone</b>
+    <p>{{ user.mobilePhone }}</p>
+  </div>
+  <div class="item">
+    <b>Email</b>
+    <p>{{ user.email }}</p>
+  </div>
+</div>
+<mat-divider></mat-divider>
+<h2>Additional Information</h2>
+<div class="dflex">
+  <div class="item">
+    <b>Is retiree</b>
+    <p>{{ user.isRetiree ? "Yes" : "No" }}</p>
+  </div>
+  <div class="item">
+    <b>Disability</b>
+    <p>{{ user.disability.name }}</p>
+  </div>
+  <div class="item">
+    <b>Month income</b>
+    <p>{{ user.monthIncome }}</p>
+  </div>
+</div>

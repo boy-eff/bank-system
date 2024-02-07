@@ -1,0 +1,9 @@
+<mat-list>
+  <div mat-subheader><b>Users</b></div>
+  <mat-list-item *ngFor="let user of users; let i = index">
+    <a [routerLink]="['/users', user.identityNumber]">
+      <div matListItemTitle>{{ getUserFullName(i) }}</div>
+      <div matListItemLine>Mobile Phone: {{ user.mobilePhone }}</div>
+    </a>
+  </mat-list-item>
+</mat-list>

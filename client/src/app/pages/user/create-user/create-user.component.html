@@ -1,0 +1,126 @@
+<form [formGroup]="userForm">
+  <mat-stepper formArrayName="stepsArray">
+    <mat-step formGroupName="0" [stepControl]="stepsArray.get([0])">
+      <ng-template matStepLabel>Primary Information</ng-template>
+      <div class="dflex">
+        <mat-form-field class="form-control">
+          <mat-label>Last name</mat-label>
+          <input matInput formControlName="firstName">
+        </mat-form-field>
+        <mat-form-field class="form-control">
+          <mat-label>First name</mat-label>
+          <input matInput formControlName="lastName">
+        </mat-form-field>
+        <mat-form-field class="form-control">
+          <mat-label>Middle name</mat-label>
+          <input matInput formControlName="middleName">
+        </mat-form-field>
+        <mat-form-field class="form-control">
+          <mat-label>Date of birth</mat-label>
+          <input matInput formControlName="dateOfBirth" [matDatepicker]="dobPicker">
+          <mat-hint>DD/MM/YYYY</mat-hint>
+          <mat-datepicker-toggle matIconSuffix [for]="dobPicker"></mat-datepicker-toggle>
+          <mat-datepicker #dobPicker></mat-datepicker>
+        </mat-form-field>
+        <mat-form-field class="form-control">
+          <mat-label>Marital status</mat-label>
+          <input matInput formControlName="maritalStatus">
+        </mat-form-field>
+        <mat-radio-group class="form-control" formControlName="sex">
+          <mat-label>Sex</mat-label>
+          <mat-radio-button *ngFor="let sex of sexEnum | enum" [value]="sexEnum[sex]">{{ sex }}</mat-radio-button>
+        </mat-radio-group>
+        <div>
+          <button mat-button matStepperNext type="button">Next</button>
+        </div>
+      </div>
+    </mat-step>
+    <mat-step formGroupName="1" [stepControl]="stepsArray.get([1])">
+      <ng-template matStepLabel>Passport Information</ng-template>
+      <div class="dflex">
+        <mat-form-field class="form-control">
+          <mat-label>Passport series</mat-label>
+          <input matInput formControlName="passportSeries">
+        </mat-form-field>
+        <mat-form-field class="form-control">
+          <mat-label>Passport number</mat-label>
+          <input matInput formControlName="passportNumber" placeholder="1234567">
+        </mat-form-field>
+        <mat-form-field class="form-control">
+          <mat-label>Issuer</mat-label>
+          <input matInput formControlName="issuer">
+        </mat-form-field>
+        <mat-form-field class="form-control">
+          <mat-label>Issue date</mat-label>
+          <input matInput formControlName="issueDate" [matDatepicker]="issueDatePicker">
+          <mat-hint>DD/MM/YYYY</mat-hint>
+          <mat-datepicker-toggle matIconSuffix [for]="issueDatePicker"></mat-datepicker-toggle>
+          <mat-datepicker #issueDatePicker></mat-datepicker>
+        </mat-form-field>
+        <mat-form-field class="form-control">
+          <mat-label>Identification number</mat-label>
+          <input matInput formControlName="identityNumber" placeholder="1234567A123BC4">
+        </mat-form-field>
+        <mat-form-field class="form-control">
+          <mat-label>Place of Birth</mat-label>
+          <input matInput formControlName="placeOfBirth">
+        </mat-form-field>
+        <mat-form-field class="form-control">
+          <mat-label>Registration Address</mat-label>
+          <input matInput formControlName="registrationAddress">
+        </mat-form-field>
+        <div>
+          <button mat-button matStepperNext type="button">Next</button>
+        </div>
+      </div>
+    </mat-step>
+    <mat-step formGroupName="2" [stepControl]="stepsArray.get([2])">
+      <ng-template matStepLabel>Contact Information</ng-template>
+      <div class="dflex">
+        <mat-form-field class="form-control">
+          <mat-label>Actual residence city</mat-label>
+          <input matInput formControlName="actualResidenceCity">
+        </mat-form-field>
+        <mat-form-field class="form-control">
+          <mat-label>Actual Residence Address</mat-label>
+          <input matInput formControlName="actualResidenceAddress">
+        </mat-form-field>
+        <mat-form-field class="form-control">
+          <mat-label>Home phone</mat-label>
+          <input matInput formControlName="homePhone" placeholder="12345">
+        </mat-form-field>
+        <mat-form-field class="form-control">
+          <mat-label>Mobile phone</mat-label>
+          <span matTextPrefix>+375 &nbsp;</span>
+          <input matInput formControlName="mobilePhone" placeholder="123456789">
+        </mat-form-field>
+        <mat-form-field class="form-control">
+          <mat-label>Email</mat-label>
+          <input matInput formControlName="email">
+        </mat-form-field>
+        <div>
+          <button mat-button matStepperNext type="button">Next</button>
+        </div>
+      </div>
+    </mat-step>
+    <mat-step formGroupName="3" [stepControl]="stepsArray.get([3])">
+      <ng-template matStepLabel>Additional Information</ng-template>
+      <div class="dflex">
+        <mat-form-field class="form-control">
+          <mat-label>Disability</mat-label>
+          <input matInput formControlName="disability">
+        </mat-form-field>
+        <mat-form-field class="form-control">
+          <mat-label>Month Income</mat-label>
+          <input matInput formControlName="monthIncome">
+        </mat-form-field>
+        <div class="form-control">
+          <mat-checkbox formControlName="isRetiree">Is retiree</mat-checkbox>
+        </div>
+        <div>
+          <button mat-button matStepperNext type="button">Next</button>
+        </div>
+      </div>
+    </mat-step>
+  </mat-stepper>
+</form>
